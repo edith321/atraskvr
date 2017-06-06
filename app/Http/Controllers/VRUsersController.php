@@ -19,11 +19,7 @@ class VRUsersController extends Controller
      */
     public function adminIndex()
     {
-        $configuration = $this->getRoutesData();
-        $configuration ['list'] = VRUsers::with(['rolesConnectionData'])->orderBy('updated_at', 'desc')->get()->toArray();
-        $configuration ['ignore'] = '';
-        $configuration ['listName'] = 'Registered users list';
-        return view('admin.adminList', $configuration);
+
     }
 
     /**
@@ -57,13 +53,7 @@ class VRUsersController extends Controller
      */
     public function adminShow($id)
     {
-        $configuration = $this->getRoutesData();
-        $configuration['array_key'] = 'roles';
-        $configuration['name'] = 'name';
-        $configuration['title'] = "User's record";
-        $configuration ['single'] = VRUsers::with(['userRoles'])->find($id)->toArray();
 
-        return view('admin.adminSingle', $configuration);
     }
 
     /**
@@ -75,13 +65,7 @@ class VRUsersController extends Controller
      */
     public function adminEdit($id)
     {
-        $config = $this->getRoutesData();
 
-        $config['item'] = VRUsers::find($id);
-
-        $config['item']->pluck('id')->toArray();
-
-        return view('admin.adminUsersEdit', $config);
     }
 
     /**
@@ -93,23 +77,7 @@ class VRUsersController extends Controller
      */
     public function adminUpdate($id)
     {
-        $record = VRUsers::find($id);
-        $data = request()->all($id);
 
-        $config = $this->getRoutesData();
-        $config['item'] = VRUsers::find($id);
-        $config['item']->pluck('id')->toArray();
-
-        $this->validate(request(), [
-            'user_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'phone' => 'required|digits:8',
-        ]);
-
-        $record->update($data);
-
-        return redirect('/admin/users/'. $id .'/')->with('message', 'Vartotojas sėkmingai atnaujintas!');
     }
 
     /**
@@ -121,10 +89,7 @@ class VRUsersController extends Controller
      */
     public function adminDestroy($id)
     {
-        VRUsersRolesConnections::destroy(VRUsersRolesConnections::where('user_id',$id)->pluck('id')->toArray());
-        VRUsers::destroy($id);
 
-        return json_encode(["success" => true, "id" => $id]);
     }
 
     /**
@@ -133,10 +98,6 @@ class VRUsersController extends Controller
      */
     public function getRoutesData()
     {
-        $configuration = [];
-        $configuration ['list'] = 'app.admin.users.index';
-        $configuration ['showDelete'] = 'app.admin.users.showDelete';
-        $configuration ['edit'] = 'app.admin.users.edit';
-        return $configuration;
+
     }
 }

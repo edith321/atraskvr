@@ -14,20 +14,12 @@ class VROrdersController extends Controller
      */
     public function adminIndex()
     {
-        // $configuration = $this->getRoutesData();
-        $configuration ['listName'] = 'Orders list';
-        $configuration ['list'] = VROrders::with(['orderReservations'])->get()->toArray();
-        $configuration ['ignore'] = '';
-        $configuration ['url'] = url('admin/orders/create');
-        return view('admin.adminList', $configuration);
+
     }
 
     public function getRoutesData()
     {
-        $configuration = [];
-        $configuration ['showDelete'] = 'app.admin.orders.index';
-        $configuration ['edit'] = 'app.admin.orders.index';
-        return $configuration;
+
     }
 
     /**
@@ -38,7 +30,7 @@ class VROrdersController extends Controller
      */
     public function create()
     {
-        return view('users.usersOrders');
+
     }
 
     /**

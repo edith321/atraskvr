@@ -20,8 +20,7 @@ class VRResourcesController extends Controller {
 	 */
 	public function adminIndex()
 	{
-        $resources = VRResources::paginate(4);
-        return view('admin.adminResourcesList')->with('vr_resources', $resources);
+
 	}
     /**
      * Show the form for creating a new resource.
@@ -31,7 +30,7 @@ class VRResourcesController extends Controller {
      */
     public function adminCreate()
     {
-        return view('admin.adminUpload');
+
     }
 
         /**
@@ -43,18 +42,7 @@ class VRResourcesController extends Controller {
          */
         public function adminUpload(UploadedFile $file)
     {
-        $data = [
-            "size" => $file->getSize(),
-            "mime_type" => $file->getMimeType(),
-        ];
-        $path = 'upload/' . date("Y/m/d") . '/';
-        $fileName = Carbon::now()->timestamp . '_' .$file->getClientOriginalName();
 
-        $file->move(public_path($path), $fileName);
-        $data['path'] = $path . $fileName;
-
-
-        return VRResources::create($data);
 
     }
     /**
@@ -65,18 +53,7 @@ class VRResourcesController extends Controller {
      */
     protected function adminStore()
     {
-//        $this->validate(request(), [
-//            'mime_type' => 'required'
-//        ]);
-        $vr_resources = request()->file('image');
 
-//        $validation = $vr_resources;
-//        if ($validation->fails()) {
-//            return redirect()->back()->withInput()
-//                ->with('errors', $validation->errors());
-//        }
-        $this->adminUpload($vr_resources);
-        return redirect('/admin/upload/')->with('message', 'Failas sėkmingai įkeltas!');
    }
 
 	/**
@@ -100,7 +77,6 @@ class VRResourcesController extends Controller {
 	 */
 	public function adminDestroy($id)
 	{
-        VRResources::destroy($id);
-        return redirect('/admin/upload/')->with('message','Įrašas buvo ištrintas!');
+
 	}
 }

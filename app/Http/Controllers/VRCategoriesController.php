@@ -14,19 +14,11 @@ class VRCategoriesController extends Controller {
 
     public function adminIndex()
     {
-       // $configuration = $this->getRoutesData();
-        $configuration ['listName'] = 'Categories list';
-        $configuration ['list'] =  VRCategories::with(['categoryTranslations'])->get()->toArray();
-        $configuration ['ignore'] = '';
 
-        return view('admin.adminList', $configuration);
     }
 
     public function getRoutesData()
     {
-        $configuration = [];
-       // $configuration ['showDelete'] = 'app.admin.categories.index';
-       // $configuration ['edit'] = 'app.admin.categories.index';
-        return $configuration;
+
     }
 }
