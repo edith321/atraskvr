@@ -38,17 +38,6 @@ class VrCategoriesTranslationsController extends Controller {
 		//
 	}
 
-    /**
-     * Store a newly created resource in storage.
-     * POST /vrcategoriestranslations
-     *
-     * @return Response
-     */
-    public function storeFromVrCategoriesController($data, $record)
-    {
-
-    }
-
 	/**
 	 * Display the specified resource.
 	 * GET /vrcategoriestranslations/{id}

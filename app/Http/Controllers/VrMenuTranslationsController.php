@@ -27,16 +27,6 @@ class VrMenuTranslationsController extends Controller {
 		//
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /vrmenutranslations
-	 *
-	 * @return Response
-	 */
-	public function storeFromVrMenuController($data, $record)
-	{
-
-	}
 
 	/**
 	 * Display the specified resource.

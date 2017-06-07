@@ -26,4 +26,13 @@ class VrUsers extends Authenticatable
 
     protected $fillable = ['id', 'name', 'email', 'password', 'phone', 'remember_token'];
 
+    /**
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function rolesConnectionData()
+    {
+        return $this->belongsToMany(VrRoles::class, 'vr_connections_users_roles', 'user_id', 'role_id');
+    }
+
 }

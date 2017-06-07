@@ -38,11 +38,6 @@ class VrPagesTranslationsController extends Controller {
 		//
 	}
 
-    public function storeFromVrPagesController($data, $article)
-    {
-
-     }
-
 	/**
 	 * Display the specified resource.
 	 * GET /vrpagestranslations/{id}
@@ -79,10 +74,6 @@ class VrPagesTranslationsController extends Controller {
 		//
 	}
 
-	public function updateFromVrPagesController($data, $id)
-    {
-
-    }
 	/**
 	 * Remove the specified resource from storage.
 	 * DELETE /vrpagestranslations/{id}

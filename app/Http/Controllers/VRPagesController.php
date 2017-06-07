@@ -21,16 +21,6 @@ class VrPagesController extends Controller {
 
 	}
 
-	public function indexFrontEnd($slug)
-    {
-
-    }
-
-    public function indexFrontEndEn($slug)
-    {
-
-    }
-
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /vrpages/create

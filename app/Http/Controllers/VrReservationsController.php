@@ -40,19 +40,6 @@ class VrReservationsController extends Controller {
 		//
 	}
 
-    /**
-     * Store a newly created resource in storage via VrOrdersController call
-     *  POST
-     *
-     * @param formdata
-     * @param order entry
-     * @return void
-     */
-	public function storeFromOrder($experience, $record)
-    {
-
-    }
-
 	/**
 	 * Display the specified resource.
 	 * GET /vrreservations/{id}
