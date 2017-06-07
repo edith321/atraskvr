@@ -4,19 +4,17 @@ namespace App\Models;
 
 
 
-class VrCategories extends CoreModel
+class VrMenu extends CoreModel
 {
-    use UuidTrait;
 
     /**
      * Database table name
      * @var string
      */
-    protected $table = 'vr_categories';
+    protected $table = 'vr_menu';
     /**
      * Fillable column names
      * @var array
      */
-    protected $fillable = ['id', 'comment'];
-
+    protected $fillable = ['id', 'new_window', 'sequence', 'vr_parent_id'];
 }

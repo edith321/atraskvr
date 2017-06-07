@@ -1,104 +1,104 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\VrCategories;
-use App\Models\VrCategoriesTranslations;
-use App\Models\VrPages;
-use App\Models\VrPagesTranslations;
-use App\Models\VrResources;
+use App\Models\VrReservations;
+use DateTime;
 use Illuminate\Routing\Controller;
+use Ramsey\Uuid\Uuid;
 
-class VrPagesController extends Controller {
+class VrReservationsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /vrpages
+	 * GET /vrreservations
 	 *
 	 * @return Response
 	 */
-
 	public function index()
 	{
-
+		//
 	}
-
-	public function indexFrontEnd($slug)
-    {
-
-    }
-
-    public function indexFrontEndEn($slug)
-    {
-
-    }
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /vrpages/create
+	 * GET /vrreservations/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-
+		//
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /vrpages
+	 * POST /vrreservations
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
+		//
+	}
+
+    /**
+     * Store a newly created resource in storage via VrOrdersController call
+     *  POST
+     *
+     * @param formdata
+     * @param order entry
+     * @return void
+     */
+	public function storeFromOrder($experience, $record)
+    {
 
     }
 
 	/**
 	 * Display the specified resource.
-	 * GET /vrpages/{id}
+	 * GET /vrreservations/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function show($id)
 	{
-
+		//
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /vrpages/{id}/edit
+	 * GET /vrreservations/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-
+		//
 	}
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /vrpages/{id}
+	 * PUT /vrreservations/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function update($id)
 	{
-
+		//
 	}
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /vrpages/{id}
+	 * DELETE /vrreservations/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-
+		//
 	}
 
 }

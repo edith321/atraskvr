@@ -1,16 +1,16 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use App\Models\VrOrder;
-use App\Models\VrUsers;
-use Illuminate\Routing\Controller;
-use Ramsey\Uuid\Uuid;
+namespace App\Http\Controllers;
 
-class VrUsersController extends Controller
+
+
+
+class VrMenuController extends Controller
 {
 
     /**
      * Display a listing of the resource.
-     * GET /vrusers
+     * GET /vrmenu
      *
      * @return Response
      */
@@ -19,14 +19,9 @@ class VrUsersController extends Controller
 
     }
 
-    public function orderIndex ($id)
-    {
-
-    }
-
     /**
      * Show the form for creating a new resource.
-     * GET /vrusers/create
+     * GET /vrmenu/create
      *
      * @return Response
      */
@@ -37,10 +32,12 @@ class VrUsersController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * POST /vrusers
+     * POST /vrmenu
      *
      * @return Response
      */
+
+
     public function store()
     {
 
@@ -48,7 +45,7 @@ class VrUsersController extends Controller
 
     /**
      * Display the specified resource.
-     * GET /vrusers/{id}
+     * GET /vrmenu/{id}
      *
      * @param  int $id
      * @return Response
@@ -60,7 +57,7 @@ class VrUsersController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * GET /vrusers/{id}/edit
+     * GET /vrmenu/{id}/edit
      *
      * @param  int $id
      * @return Response
@@ -72,7 +69,7 @@ class VrUsersController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * PUT /vrusers/{id}
+     * PUT /vrmenu/{id}
      *
      * @param  int $id
      * @return Response
@@ -84,15 +81,13 @@ class VrUsersController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * DELETE /vrusers/{id}
+     * DELETE /vrmenu/{id}
      *
      * @param  int $id
      * @return Response
      */
     public function destroy($id)
     {
-        //
+
     }
-
-
 }

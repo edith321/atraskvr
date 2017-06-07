@@ -2,18 +2,20 @@
 
 namespace App\Models;
 
-class VRRoles extends CoreModel
+use Illuminate\Database\Eloquent\Model;
+
+class VrRoles extends CoreModel
 {
+
     /**
-     * Table name
-     * @var string
+     * $table name DataBases
      */
     protected $table = 'vr_roles';
 
     /**
-     * Fields which will be manipulated
-     * @var array
+     * $fillable is table 'vr_roles' fields
      */
-    protected $fillable = ['id', 'name'];
-}
 
+    protected $fillable = ['id', 'name'];
+
+}

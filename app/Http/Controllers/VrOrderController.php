@@ -1,39 +1,30 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\VrCategories;
-use App\Models\VrCategoriesTranslations;
+use App\Models\VrOrder;
 use App\Models\VrPages;
-use App\Models\VrPagesTranslations;
-use App\Models\VrResources;
+use App\Models\VrReservations;
+use Carbon\Carbon;
+use DateTimeZone;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Input;
 
-class VrPagesController extends Controller {
+class VrOrderController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /vrpages
+	 * GET /vrorder
 	 *
 	 * @return Response
 	 */
-
 	public function index()
 	{
 
 	}
 
-	public function indexFrontEnd($slug)
-    {
-
-    }
-
-    public function indexFrontEndEn($slug)
-    {
-
-    }
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /vrpages/create
+	 * GET /vrorder/create
 	 *
 	 * @return Response
 	 */
@@ -44,7 +35,7 @@ class VrPagesController extends Controller {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /vrpages
+	 * POST /vrorder
 	 *
 	 * @return Response
 	 */
@@ -55,7 +46,7 @@ class VrPagesController extends Controller {
 
 	/**
 	 * Display the specified resource.
-	 * GET /vrpages/{id}
+	 * GET /vrorder/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -67,38 +58,38 @@ class VrPagesController extends Controller {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /vrpages/{id}/edit
+	 * GET /vrorder/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-
+		//
 	}
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /vrpages/{id}
+	 * PUT /vrorder/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function update($id)
 	{
-
+		//
 	}
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /vrpages/{id}
+	 * DELETE /vrorder/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-
+		//
 	}
 
 }

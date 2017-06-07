@@ -3,20 +3,20 @@
 namespace App\Models;
 
 
-class VRPages extends CoreModel
+
+class VrPages extends CoreModel
 {
+    use UuidTrait;
+
     /**
-     * Table name
+     * Database table name
      * @var string
      */
     protected $table = 'vr_pages';
-
     /**
-     * Fields which will be manipulated
+     * Fillable column names
      * @var array
      */
-    protected $fillable = ['id', 'category_id', 'resource_id'];
-
+    protected $fillable = ['id', 'category_id', 'cover_id'];
 
 }
-

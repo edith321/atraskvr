@@ -1,97 +1,98 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\VrCategories;
-use App\Models\VrCategoriesTranslations;
-use App\Models\VrPages;
-use App\Models\VrPagesTranslations;
-use App\Models\VrResources;
+
 use Illuminate\Routing\Controller;
 
-class VrPagesController extends Controller {
+class VrCategoriesTranslationsController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /vrpages
+	 * GET /vrcategoriestranslations
 	 *
 	 * @return Response
 	 */
-
 	public function index()
 	{
-
+		//
 	}
-
-	public function indexFrontEnd($slug)
-    {
-
-    }
-
-    public function indexFrontEndEn($slug)
-    {
-
-    }
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /vrpages/create
+	 * GET /vrcategoriestranslations/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-
+		//
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /vrpages
+	 * POST /vrcategoriestranslations
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
+		//
+	}
+
+    /**
+     * Store a newly created resource in storage.
+     * POST /vrcategoriestranslations
+     *
+     * @return Response
+     */
+    public function storeFromVrCategoriesController($data, $record)
+    {
 
     }
 
 	/**
 	 * Display the specified resource.
-	 * GET /vrpages/{id}
+	 * GET /vrcategoriestranslations/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function show($id)
 	{
-
+		//
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /vrpages/{id}/edit
+	 * GET /vrcategoriestranslations/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-
+		//
 	}
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /vrpages/{id}
+	 * PUT /vrcategoriestranslations/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function update($id)
 	{
-
+		//
 	}
+
+    public function updateFromVrCategoriesController($data, $record)
+    {
+
+    }
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /vrpages/{id}
+	 * DELETE /vrcategoriestranslations/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

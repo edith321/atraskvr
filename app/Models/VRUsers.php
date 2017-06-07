@@ -2,32 +2,28 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class VRUsers extends Authenticatable
+class VrUsers extends Authenticatable
 {
+
     use Notifiable;
-    public $incrementing = false;
+
     use SoftDeletes;
+
+    public $incrementing = false;
     /**
-     * Table name
-     * @var string
+     * $table name DataBases
      */
     protected $table = 'vr_users';
 
     /**
-     * Fields which will be manipulated
-     * @var array
+     * $fillable is table 'vr_users' fields
      */
-    protected $fillable = ['id', 'user_name', 'last_name', 'email', 'password', 'phone', 'remember_token'];
 
-    /**
-     * Fields which will be hidden
-     * @var array
-     */
-    protected $hidden = ['password', 'remember_token',];
-
+    protected $fillable = ['id', 'name', 'email', 'password', 'phone', 'remember_token'];
 
 }
