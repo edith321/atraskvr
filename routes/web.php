@@ -19,7 +19,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['AdminRestriction']], function () {
 
     Route::group(['prefix' => 'menu'], function () {
         Route::get('/', ['as' => 'app.menu.index', 'uses' => 'VrMenuController@index']);
