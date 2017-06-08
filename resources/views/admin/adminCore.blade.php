@@ -21,4 +21,5 @@
     </footer>
 </body>
     @include('admin.adminJS')
+    @yield('scripts')
 </html>

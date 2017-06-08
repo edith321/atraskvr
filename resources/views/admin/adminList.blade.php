@@ -3,7 +3,7 @@
 @section('content')
     <div id="list">
     <div class="container">
-        <h2>Hover Rows</h2>
+        <h2>{{$title}}</h2>
         @if(sizeof($list)>0)
         <table class="table table-hover">
             <thead>
@@ -18,10 +18,21 @@
                 @foreach($list as $key => $values)
                 <tr>
                     @foreach($values as $key => $value)
-                        <td>{{$value}}</td>
+                        <td>
+                            @if($key == 'is_active')
+                                @if($value == 1)
+                                    <a onclick="enableDisableLanguage('{{route($call_to_action, $values['id'])}}', 1)" class="btn btn-info btn-sm" style="display: none;">{{trans('app.adminActivateButton')}}</a>
+                                    <a onclick="enableDisableLanguage('{{route($call_to_action, $values['id'])}}', 0)" class="btn btn-info btn-sm" >{{trans('app.adminDeactivateButton')}}</a>
+                                @else
+                                    <a onclick="enableDisableLanguage('{{route($call_to_action, $values['id'])}}', 1)"  class="btn btn-info btn-sm" >{{trans('app.adminActivateButton')}}</a>
+                                    <a onclick="enableDisableLanguage('{{route($call_to_action, $values['id'])}}', 0)" class="btn btn-info btn-sm" style="display: none;">{{trans('app.adminDeactivateButton')}}</a>
+                                @endif
+                                @else
+                                    {{$value}}
+                            @endif
+                        </td>
                     @endforeach
-                    <td><a href="#" class="btn btn-info btn-sm">Activate</a></td>
-                    <td><a href="#" class="btn btn-info btn-sm">Deactivate</a></td>
+
                 </tr>
                 @endforeach
 
@@ -32,4 +43,12 @@
         @endif
     </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        function enableDisableLanguage(url, value){
+            alert('Hello')
+        }
+    </script>
 @endsection
