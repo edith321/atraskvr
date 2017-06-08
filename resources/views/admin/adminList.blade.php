@@ -4,33 +4,32 @@
     <div id="list">
     <div class="container">
         <h2>Hover Rows</h2>
-        <p>The .table-hover class enables a hover state on table rows:</p>
+        @if(sizeof($list)>0)
         <table class="table table-hover">
             <thead>
-            <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-            </tr>
+                <tr>
+                    @foreach($list[0] as $key => $header)
+                    <th>{{$key}}</th>
+                    @endforeach
+                </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-            </tr>
+
+                @foreach($list as $key => $values)
+                <tr>
+                    @foreach($values as $key => $value)
+                        <td>{{$value}}</td>
+                    @endforeach
+                    <td><a href="#" class="btn btn-info btn-sm">Activate</a></td>
+                    <td><a href="#" class="btn btn-info btn-sm">Deactivate</a></td>
+                </tr>
+                @endforeach
+
             </tbody>
         </table>
+        @else
+        <p>NO DATA</p>
+        @endif
     </div>
     </div>
 @endsection
