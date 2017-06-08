@@ -12,7 +12,7 @@ class VrLanguageCodesController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		return view('admin.adminList');
 	}
 
 	/**
@@ -23,7 +23,7 @@ class VrLanguageCodesController extends Controller {
 	 */
 	public function create()
 	{
-		//
+
 	}
 
 	/**
