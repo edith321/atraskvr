@@ -15,17 +15,17 @@
             </thead>
             <tbody>
 
-                @foreach($list as $key => $values)
-                <tr>
-                    @foreach($values as $key => $value)
+                @foreach($list as $key => $record)
+                <tr id="{{$record['id']}}">
+                    @foreach($record as $key => $value)
                         <td>
                             @if($key == 'is_active')
                                 @if($value == 1)
-                                    <a onclick="toggleActive('{{route($call_to_action, $values['id'])}}', 1)" class="btn btn-info btn-sm" style="display: none;">{{trans('app.adminActivateButton')}}</a>
-                                    <a onclick="toggleActive('{{route($call_to_action, $values['id'])}}', 0)" class="btn btn-info btn-sm" >{{trans('app.adminDeactivateButton')}}</a>
+                                    <a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 1)" class="btn btn-success btn-sm" style="display: none;">{{trans('app.adminActivateButton')}}</a>
+                                    <a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 0)" class="btn btn-danger btn-sm" >{{trans('app.adminDeactivateButton')}}</a>
                                 @else
-                                    <a onclick="toggleActive('{{route($call_to_action, $values['id'])}}', 1)"  class="btn btn-info btn-sm" >{{trans('app.adminActivateButton')}}</a>
-                                    <a onclick="toggleActive('{{route($call_to_action, $values['id'])}}', 0)" class="btn btn-info btn-sm" style="display: none;">{{trans('app.adminDeactivateButton')}}</a>
+                                    <a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 1)"  class="btn btn-success btn-sm" >{{trans('app.adminActivateButton')}}</a>
+                                    <a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 0)" class="btn btn-danger btn-sm" style="display: none;">{{trans('app.adminDeactivateButton')}}</a>
                                 @endif
                                 @else
                                     {{$value}}
@@ -47,21 +47,30 @@
 
 @section('scripts')
     <script>
-        $.ajaxSetup({ //kiekvieno ajax kreipimosi metu tokena uzstato
+        $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
 
         function toggleActive(url, value) {
-            $.ajax({ // sita f-ja paduoda ne visa forma o tik viena kintamaji
+            $.ajax({
                 url: url,
                 type: 'POST',
                 data: {
-                    is_active: value // paduodamam kintamajam reikia priskirti key, kad zinotu kurioj vietoj duombazej irasyt value
-                }, // su sitais skliaustais apsirasome kaip objekta, galima dar kaip stringa
-                success: function (r) {
-                    console.log(r)
+                    is_active: value
+                },
+                success: function (response) {
+                    var danger = $('#'+ response.id).find('.btn-danger')
+                    var success = $('#'+ response.id).find('.btn-success')
+
+                    if(response.is_active  === '1') {
+                        success.hide();
+                        danger.show()
+                    } else {
+                        success.show();
+                        danger.hide()
+                    }
                 }
             });
         }

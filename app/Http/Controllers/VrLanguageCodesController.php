@@ -78,7 +78,7 @@ class VrLanguageCodesController extends Controller {
         $data = request()->all($id);
 
         $record->update($data);
-
+        return $record;
 	}
 
 	/**

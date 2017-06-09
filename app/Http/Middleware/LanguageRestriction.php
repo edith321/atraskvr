@@ -20,7 +20,6 @@ class LanguageRestriction
             app()->setLocale($language);
             return $next($request);
         }
-
         return $next($request);
     }
 }
