@@ -47,8 +47,23 @@
 
 @section('scripts')
     <script>
-        function toggleActive(url, value){
-            alert('Hello')
+        $.ajaxSetup({ //kiekvieno ajax kreipimosi metu tokena uzstato
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        function toggleActive(url, value) {
+            $.ajax({ // sita f-ja paduoda ne visa forma o tik viena kintamaji
+                url: url,
+                type: 'POST',
+                data: {
+                    is_active: value // paduodamam kintamajam reikia priskirti key, kad zinotu kurioj vietoj duombazej irasyt value
+                }, // su sitais skliaustais apsirasome kaip objekta, galima dar kaip stringa
+                success: function (r) {
+                    console.log(r)
+                }
+            });
         }
     </script>
 @endsection
