@@ -21,11 +21,11 @@
                         <td>
                             @if($key == 'is_active')
                                 @if($value == 1)
-                                    <a onclick="enableDisableLanguage('{{route($call_to_action, $values['id'])}}', 1)" class="btn btn-info btn-sm" style="display: none;">{{trans('app.adminActivateButton')}}</a>
-                                    <a onclick="enableDisableLanguage('{{route($call_to_action, $values['id'])}}', 0)" class="btn btn-info btn-sm" >{{trans('app.adminDeactivateButton')}}</a>
+                                    <a onclick="toggleActive('{{route($call_to_action, $values['id'])}}', 1)" class="btn btn-info btn-sm" style="display: none;">{{trans('app.adminActivateButton')}}</a>
+                                    <a onclick="toggleActive('{{route($call_to_action, $values['id'])}}', 0)" class="btn btn-info btn-sm" >{{trans('app.adminDeactivateButton')}}</a>
                                 @else
-                                    <a onclick="enableDisableLanguage('{{route($call_to_action, $values['id'])}}', 1)"  class="btn btn-info btn-sm" >{{trans('app.adminActivateButton')}}</a>
-                                    <a onclick="enableDisableLanguage('{{route($call_to_action, $values['id'])}}', 0)" class="btn btn-info btn-sm" style="display: none;">{{trans('app.adminDeactivateButton')}}</a>
+                                    <a onclick="toggleActive('{{route($call_to_action, $values['id'])}}', 1)"  class="btn btn-info btn-sm" >{{trans('app.adminActivateButton')}}</a>
+                                    <a onclick="toggleActive('{{route($call_to_action, $values['id'])}}', 0)" class="btn btn-info btn-sm" style="display: none;">{{trans('app.adminDeactivateButton')}}</a>
                                 @endif
                                 @else
                                     {{$value}}
@@ -47,7 +47,7 @@
 
 @section('scripts')
     <script>
-        function enableDisableLanguage(url, value){
+        function toggleActive(url, value){
             alert('Hello')
         }
     </script>
