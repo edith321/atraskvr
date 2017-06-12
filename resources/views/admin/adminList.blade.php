@@ -4,6 +4,10 @@
     <div id="list">
     <div class="container">
         <h2>{{$title}}</h2>
+        @if(isset($new))
+           <div><a class="btn btn-info" href="{{route($new)}}">{{trans('app.addNewButton')}}</a></div>
+        @endif
+
         @if(sizeof($list)>0)
         <table class="table table-hover">
             <thead>
@@ -39,7 +43,9 @@
             </tbody>
         </table>
         @else
-        <p>NO DATA</p>
+            <div class="noData">
+                <h3>{{$no_data}}</h3>
+            </div>
         @endif
     </div>
     </div>

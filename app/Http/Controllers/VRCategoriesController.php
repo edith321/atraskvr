@@ -7,8 +7,6 @@ use Ramsey\Uuid\Uuid;
 class VrCategoriesController extends Controller {
 
 
-
-
 	/**
 	 * Display a listing of the resource.
 	 * GET /vrcategories
@@ -18,7 +16,11 @@ class VrCategoriesController extends Controller {
 	 */
 	public function index()
 	{
-
+        $config['list'] = VrCategories::get()->toArray();
+        $config['title'] = trans('app.adminMenuCategories');
+        $config['no_data'] = trans('app.adminNoData');
+        $config['new'] = 'app.categories.create';
+        return view('admin.adminList', $config);
 	}
 
 	/**

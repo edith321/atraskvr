@@ -12,4 +12,6 @@ return [
     "adminLanguagesListTitle" => "Languages",
     "adminActivateButton" => "Activate",
     "adminDeactivateButton" => "Deactivate",
+    "adminNoData" => "No Data",
+    "addNewButton" => "New",
 ];

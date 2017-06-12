@@ -12,4 +12,6 @@ return [
     "adminLanguagesListTitle" => "Kalbos",
     "adminActivateButton" => "Aktyvuoti",
     "adminDeactivateButton" => "Išjungti",
+    "adminNoData" => "Duomenų nėra",
+    "addNewButton" => "Naujas",
 ];
