@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/languages', ['uses' => 'helpers@getActiveLanguages']);
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
