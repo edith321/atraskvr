@@ -19,11 +19,12 @@ html, body {
 #list {
 
     width: 100%;
-    padding-left: 270px;
+
     height: 100%;
 }
 main {
     height: 100%;
+    padding-left: 270px;
 }
 
 
