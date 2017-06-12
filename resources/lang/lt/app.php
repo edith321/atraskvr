@@ -14,4 +14,8 @@ return [
     "adminDeactivateButton" => "Išjungti",
     "adminNoData" => "Duomenų nėra",
     "addNewButton" => "Naujas",
+    "adminCreate" => "Naujas įrašas",
+    "adminSubmit" => "Siųsti",
+    "adminName" => "Pavadinimas",
+    "adminLanguages" => "Kalbos",
 ];

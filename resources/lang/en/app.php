@@ -14,4 +14,8 @@ return [
     "adminDeactivateButton" => "Deactivate",
     "adminNoData" => "No Data",
     "addNewButton" => "New",
+    "adminCreate" => "Create New",
+    "adminSubmit" => "Submit",
+    "adminName" => "Name",
+    "adminLanguages" => "Languages",
 ];
