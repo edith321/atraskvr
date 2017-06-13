@@ -18,4 +18,6 @@ return [
     "adminSubmit" => "Submit",
     "adminName" => "Name",
     "adminLanguages" => "Languages",
+    "adminEdit" => "Edit",
+    "adminBack" => "Back",
 ];

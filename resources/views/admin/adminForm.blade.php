@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <h3>{{trans('app.adminCreate')}}: {{$title}}</h3>
-        {!!Form::open(['url' => route($submit)]) !!}
+        <h3>{{$title_name}}: {{$title}}</h3>
+        {!!Form::open(['url' => $submit]) !!}
         <br>
         @foreach($fields as $field)
             @if($field['type'] == 'single_line')
@@ -21,6 +21,7 @@
             @endif
         @endforeach
         {{Form::submit(trans('app.adminSubmit'), array('class' => 'btn')) }}
+        <a class="btn btn-info" href="{{$back}}">{{trans('app.adminBack')}}</a>
         {!! Form::close() !!}
     </div>
 @endsection
