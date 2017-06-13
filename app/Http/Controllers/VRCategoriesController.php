@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Models\VrCategories;
+use App\Models\VrCategoriesTranslations;
 use App\Models\VrLanguageCodes;
 use Illuminate\Routing\Controller;
 use Ramsey\Uuid\Uuid;
@@ -58,7 +59,12 @@ class VrCategoriesController extends Controller {
 	 */
 	public function store()
 	{
+	    $data = request()->all();
+	    $record = VrCategories::create();
+	    $data['record_id'] = $record->id;
+	    VrCategoriesTranslations::create($data);
 
+	    return redirect(route('app.categories.edit', [$record->id])); // arba $data['record_id']
 	}
 
 	/**
