@@ -18,6 +18,7 @@ return [
     "adminSubmit" => "Siųsti",
     "adminName" => "Pavadinimas",
     "adminLanguages" => "Kalbos",
-    "adminEdit" => "Įrašo koregavimas",
+    "adminEdit" => "Koreguoti",
     "adminBack" => "Grįžti",
+    "adminDelete" => "Ištrinti",
 ];

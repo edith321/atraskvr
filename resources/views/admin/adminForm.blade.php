@@ -7,9 +7,9 @@
         <br>
         @foreach($fields as $field)
             @if($field['type'] == 'single_line')
-                {{Form::label($field['key'], $field['label'])}}
+                {{Form::label($field['key'], $field['label'], $edit['translation']['language_code'])}}
                 <br>
-                {{Form::text($field['key'])}}
+                {{Form::text($field['key'], $edit['translation']['name'])}}
                 <br>
                 <br>
             @elseif($field['type'] == 'drop_down')

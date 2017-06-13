@@ -18,4 +18,11 @@ class VrCategories extends CoreModel
      */
     protected $fillable = ['id'];
 
+    protected $with = ['translation'];
+
+    public function translation() {
+        $language = app()->getLocale();
+        return $this->hasOne(VrCategoriesTranslations::class, 'record_id', 'id')->where('language_code', $language);
+    }
+
 }

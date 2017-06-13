@@ -5,7 +5,7 @@
     <div class="container">
         <h2>{{$title}}</h2>
         @if(isset($new))
-           <div><a class="btn btn-info" href="{{route($new)}}">{{trans('app.addNewButton')}}</a></div>
+           <div><a class="btn btn-info" href="{{$new}}">{{trans('app.addNewButton')}}</a></div>
         @endif
 
         @if(sizeof($list)>0)
@@ -13,7 +13,7 @@
             <thead>
                 <tr>
                     @foreach($list[0] as $key => $header)
-                    <th>{{$key}}</th>
+                            <th>{{$key}}</th>
                     @endforeach
                 </tr>
             </thead>
@@ -22,20 +22,33 @@
                 @foreach($list as $key => $record)
                 <tr id="{{$record['id']}}">
                     @foreach($record as $key => $value)
-                        <td>
+
                             @if($key == 'is_active')
+
                                 @if($value == 1)
-                                    <a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 1)" class="btn btn-success btn-sm" style="display: none;">{{trans('app.adminActivateButton')}}</a>
-                                    <a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 0)" class="btn btn-danger btn-sm" >{{trans('app.adminDeactivateButton')}}</a>
+                                <td><a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 1)" class="btn btn-success btn-sm" style="display: none;">{{trans('app.adminActivateButton')}}</a>
+                                <a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 0)" class="btn btn-danger btn-sm" >{{trans('app.adminDeactivateButton')}}</a></td>
                                 @else
-                                    <a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 1)"  class="btn btn-success btn-sm" >{{trans('app.adminActivateButton')}}</a>
-                                    <a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 0)" class="btn btn-danger btn-sm" style="display: none;">{{trans('app.adminDeactivateButton')}}</a>
+                                <td><a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 1)"  class="btn btn-success btn-sm" >{{trans('app.adminActivateButton')}}</a>
+                                <a onclick="toggleActive('{{route($call_to_action, $record['id'])}}', 0)" class="btn btn-danger btn-sm" style="display: none;">{{trans('app.adminDeactivateButton')}}</a></td>
                                 @endif
-                                @else
-                                    {{$value}}
+
+                            @elseif($key == 'translation')
+                            <td>{{$value['name'] . ' ' . $value['language_code']}}</td>
+                            @else
+                            <td>{{$value}}</td>
+
                             @endif
-                        </td>
+
                     @endforeach
+                    @if(isset($edit))
+                        <td>
+                            <a class="btn btn-info" href="{{route($edit, $record['id'])}}">{{trans('app.adminEdit')}}</a>
+                    @endif
+                    @if(isset($delete))
+                            <a class="btn btn-danger" onclick="deleteItem('{{route($delete, $record['id'])}}')">{{trans('app.adminDelete')}}</a>
+                        </td>
+                    @endif
 
                 </tr>
                 @endforeach
@@ -58,6 +71,20 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        function deleteItem(route) {
+            $.ajax({
+                url: route,
+                dataType: 'json',
+                type: 'DELETE',
+                success: function () {
+                    /*alert('DELETED');*/
+                    location.reload();
+                },
+                error: function () {
+                    alert('ERROR');
+                }
+            });
+        }
 
         function toggleActive(url, value) {
             $.ajax({
@@ -79,6 +106,8 @@
                     }
                 }
             });
+
+
         }
     </script>
 @endsection

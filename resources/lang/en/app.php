@@ -20,4 +20,5 @@ return [
     "adminLanguages" => "Languages",
     "adminEdit" => "Edit",
     "adminBack" => "Back",
+    "adminDelete" => "Delete",
 ];

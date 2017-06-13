@@ -21,7 +21,9 @@ class VrCategoriesController extends Controller {
         $config['list'] = VrCategories::get()->toArray();
         $config['title'] = trans('app.adminMenuCategories');
         $config['no_data'] = trans('app.adminNoData');
-        $config['new'] = 'app.categories.create';
+        $config['new'] = route('app.categories.create');
+        $config['edit'] = 'app.categories.edit';
+        $config['delete'] = 'app.categories.destroy';
         return view('admin.adminList', $config);
 	}
 
@@ -33,20 +35,9 @@ class VrCategoriesController extends Controller {
 	 */
 	public function create()
 	{
-        $config['submit'] = 'app.categories.create';
-        $config['title'] = trans('app.adminMenuCategories');
-        $config['fields'][] = [
-            "type" => "drop_down",
-            "key" => "language_code",
-            "options" => getActiveLanguages(),
-            "label" => trans('app.adminLanguages')
-
-        ];
-        $config['fields'][] = [
-            "type" => "single_line",
-            "key" => "name",
-            "label" => trans('app.adminName')
-        ];
+        $config = $this->getFormData();
+        $config['submit'] = route('app.categories.create');
+        $config['title_name'] = trans('app.adminCreate');
 
         return view('admin.adminForm', $config);
 	}
@@ -88,7 +79,12 @@ class VrCategoriesController extends Controller {
 	 */
 	public function edit($id)
 	{
+        $config = $this->getFormData();
+        $config['title_name'] = trans('app.adminEdit');
+        $config['submit'] = route('app.categories.edit', $id);
+        $config['edit'] = VrCategories::find($id)->toArray();
 
+        return view('admin.adminForm', $config);
 	}
 
 	/**
@@ -100,7 +96,7 @@ class VrCategoriesController extends Controller {
 	 */
 	public function update($id)
 	{
-
+        //
 	}
 
 	/**
@@ -112,7 +108,32 @@ class VrCategoriesController extends Controller {
 	 */
 	public function destroy($id)
 	{
+        VrCategoriesTranslations::destroy(VrCategoriesTranslations::where('record_id', $id)->pluck('id')->toArray());
+        VrCategories::destroy($id);
 
+        return json_encode(["success" => true, "id" => $id]);
 	}
 
+    /**
+     * G
+     * @return mixed
+     */
+    public function getFormData() {
+
+        $config['title'] = trans('app.adminMenuCategories');
+        $config['back'] = route('app.categories.index');
+        $config['fields'][] = [
+            "type" => "drop_down",
+            "key" => "language_code",
+            "options" => getActiveLanguages(),
+            "label" => trans('app.adminLanguages')
+
+        ];
+        $config['fields'][] = [
+            "type" => "single_line",
+            "key" => "name",
+            "label" => trans('app.adminName')
+        ];
+        return $config;
+}
 }
