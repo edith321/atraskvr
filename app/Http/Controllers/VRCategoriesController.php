@@ -115,7 +115,7 @@ class VrCategoriesController extends Controller {
 	}
 
     /**
-     * G
+     *
      * @return mixed
      */
     public function getFormData() {

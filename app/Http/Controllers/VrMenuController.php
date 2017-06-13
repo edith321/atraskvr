@@ -90,4 +90,38 @@ class VrMenuController extends Controller
     {
 
     }
+    /**
+     * G
+     * @return mixed
+     */
+    public function getFormData() {
+
+        $config['title'] = trans('app.adminMenuCategories');
+        $config['back'] = route('app.categories.index');
+        $config['fields'][] = [
+            "type" => "drop_down",
+            "key" => "language_code",
+            "options" => getActiveLanguages(),
+            "label" => trans('app.adminLanguages')
+        ];
+        $config['fields'][] = [
+            "type" => "single_line",
+            "key" => "name",
+            "label" => trans('app.adminName')
+        ];
+        $config['fields'][] = [
+            "type" => "single_line",
+            "key" => "url",
+            "label" => trans('app.adminName')
+        ];
+        $config['fields'][] = [
+            "type" => "checkbox",
+            "key" => "new_window",
+            "label" => trans('app.adminName'),
+            "options" => [
+                "value" => "label"
+            ],
+        ];
+        return $config;
+    }
 }
