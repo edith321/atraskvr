@@ -21,4 +21,9 @@ return [
     "adminEdit" => "Edit",
     "adminBack" => "Back",
     "adminDelete" => "Delete",
+    "adminURL" => "Url",
+    "adminNewWindow" => "Open in new window",
+    "adminSequence" => "Sequence",
+    "adminParent"=> "Parent menu item",
+    "adminYes" => "Yes",
 ];

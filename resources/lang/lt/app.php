@@ -21,4 +21,9 @@ return [
     "adminEdit" => "Koreguoti",
     "adminBack" => "Grįžti",
     "adminDelete" => "Ištrinti",
+    "adminURL" => "Nuoroda",
+    "adminNewWindow" => "Atidaryti naujame lange",
+    "adminSequence" => "Eiliškumas",
+    "adminParent"=> "Tėvinis meniu punktas",
+    "adminYes" => "Taip",
 ];
