@@ -84,9 +84,12 @@ class VrMenuController extends Controller
     {
         $config = $this->getFormData();
         $config['title_name'] = trans('app.adminEdit');
-        $config['submit'] = route('app.categories.edit', $id);
+        $config['submit'] = route('app.menu.edit', $id);
         $config['edit'] = VrMenu::find($id)->toArray();
-        dd($config['edit']);
+        $config['edit']['name'] = $config['edit']['translation']['name'];
+        $config['edit']['url'] = $config['edit']['translation']['url'];
+        $config['edit']['language_code'] = $config['edit']['translation']['language_code'];
+
         return view('admin.adminForm', $config);
     }
 
@@ -162,7 +165,7 @@ class VrMenuController extends Controller
 
         $config['fields'][] = [
             "type" => "drop_down",
-            "key" => "parent_id",
+            "key" => "vr_parent_id",
             "label" => trans('app.adminParent'),
             "options" => VrMenuTranslations::where('language_code', $lang)->pluck('name', 'record_id'),
             ],

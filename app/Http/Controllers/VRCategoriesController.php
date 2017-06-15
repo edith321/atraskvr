@@ -3,6 +3,8 @@
 use App\Models\VrCategories;
 use App\Models\VrCategoriesTranslations;
 use App\Models\VrLanguageCodes;
+use App\Models\VrMenu;
+use App\Models\VrMenuTranslations;
 use Illuminate\Routing\Controller;
 use Ramsey\Uuid\Uuid;
 
@@ -82,7 +84,7 @@ class VrCategoriesController extends Controller {
         $config = $this->getFormData();
         $config['title_name'] = trans('app.adminEdit');
         $config['submit'] = route('app.categories.edit', $id);
-        $config['edit'] = VrCategories::find($id)->toArray();
+        $config['edit'] = VrMenu::find($id)->toArray();
 
         return view('admin.adminForm', $config);
 	}
