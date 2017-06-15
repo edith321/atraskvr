@@ -7,7 +7,8 @@
         <br>
         @foreach($fields as $field)
             @if($field['type'] == 'single_line')
-                {{Form::label($field['key'], $field['label']/*, $edit['translation']['language_code']*/)}}
+
+                {{Form::label($field['key'], $field['label'])}}
                 <br>
                 {{Form::text($field['key']/*, $edit['translation']['name']*/)}}
                 <br>

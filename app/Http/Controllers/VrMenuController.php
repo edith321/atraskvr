@@ -39,6 +39,7 @@ class VrMenuController extends Controller
         $config = $this->getFormData();
         $config['submit'] = route('app.menu.create');
         $config['title_name'] = trans('app.adminCreate');
+
         return view('admin.adminForm', $config);
     }
 
@@ -81,7 +82,12 @@ class VrMenuController extends Controller
      */
     public function edit($id)
     {
-
+        $config = $this->getFormData();
+        $config['title_name'] = trans('app.adminEdit');
+        $config['submit'] = route('app.categories.edit', $id);
+        $config['edit'] = VrMenu::find($id)->toArray();
+        dd($config['edit']);
+        return view('admin.adminForm', $config);
     }
 
     /**
