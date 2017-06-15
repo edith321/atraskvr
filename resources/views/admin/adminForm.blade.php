@@ -15,7 +15,11 @@
             @elseif($field['type'] == 'drop_down')
                 {{Form::label($field['key'], $field['label'])}}
                 <br/>
-                {{Form::select($field['key'], /*[null=>'Please Select'] +*/ $field['options'])}}
+                @if(!($field['key'] == 'language_code'))
+                    {{Form::select($field['key'], $field['options'], null, ['placeholder' => trans('app.placeholder')])}}
+                @else
+                    {{Form::select($field['key'], $field['options'])}}
+                @endif
                 <br/>
                 <br>
             @elseif($field['type'] == 'checkbox')
@@ -36,13 +40,13 @@
     </div>
 @endsection
 
-{{--
 @section('scripts')
     <script>
-        var $languageDropDown = $("[name='language_id']");
-        $languageDropDown.bind('change', function () {
-            location.href = "/admin/menus/{{$item['id']}}/edit/" + $languageDropDown.val();
-        });
+
+        $('#language_code').bind('change', function(){
+            window.location.href= '?language_code=' + $('#language_code').val();
+            /*alert($('#language_code').val())*/
+        })
+
     </script>
 @endsection
---}}

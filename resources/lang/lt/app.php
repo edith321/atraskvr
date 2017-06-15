@@ -26,4 +26,5 @@ return [
     "adminSequence" => "Eiliškumas",
     "adminParent"=> "Tėvinis meniu punktas",
     "adminYes" => "Taip",
+    "placeholder" => "Pasirinkite"
 ];

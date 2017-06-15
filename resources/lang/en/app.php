@@ -26,4 +26,5 @@ return [
     "adminSequence" => "Sequence",
     "adminParent"=> "Parent menu item",
     "adminYes" => "Yes",
+    "placeholder" => "Please Select"
 ];

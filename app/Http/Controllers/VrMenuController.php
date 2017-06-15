@@ -113,6 +113,12 @@ class VrMenuController extends Controller
      */
     public function getFormData() {
 
+        $lang = request('language_code');
+
+        if($lang == null) {
+            $lang = app()->getLocale();
+        }
+
         $config['title'] = trans('app.adminMenuMenus');
         $config['back'] = route('app.menu.index');
         $config['fields'][] = [
@@ -147,11 +153,12 @@ class VrMenuController extends Controller
             "key" => "sequence",
             "label" => trans('app.adminSequence')
         ],
+
         $config['fields'][] = [
             "type" => "drop_down",
             "key" => "parent_id",
             "label" => trans('app.adminParent'),
-            "options" => VrMenuTranslations::pluck('name', 'record_id'),
+            "options" => VrMenuTranslations::where('language_code', $lang)->pluck('name', 'record_id'),
             ],
         ];
         return $config;
