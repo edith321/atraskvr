@@ -15,7 +15,7 @@
             @elseif($field['type'] == 'drop_down')
                 {{Form::label($field['key'], $field['label'])}}
                 <br/>
-                {{Form::select($field['key'], $field['options'])}}
+                {{Form::select($field['key'], /*[null=>'Please Select'] +*/ $field['options'])}}
                 <br/>
                 <br>
             @elseif($field['type'] == 'checkbox')
