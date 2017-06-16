@@ -3,10 +3,23 @@
 @section('content')
     <div class="container">
         <h3>{{$title_name}}: {{$title}}</h3>
-        {!!Form::open(['url' => $submit]) !!}
-        <br>
+        <div>@if( Session::has('errors') )
+                <div class="alert alert-danger" role="alert" align="center">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif</div>
+
         @foreach($fields as $field)
 
+            @if($field['type'] == 'image')
+                {!!Form::open(['url' => $submit]) !!}
+            @endif
+                {!!Form::open(['url' => $submit, 'files' => true]) !!}
+                <br>
 
             @if($field['type'] == 'single_line')
 
@@ -79,8 +92,34 @@
                     <br/>
                 @endforeach
                 <br/>
-
+            @elseif($field['type'] == 'short_text')
+                {{Form::label($field['key'], $field['label'])}}
+                <br>
+                @if(isset($edit[$field['key']]))
+                    {{ Form::textarea($field['key'], $edit[$field['key']], ['size' => '30x5']) }}
+                @else
+                    {{ Form::textarea($field['key'], null, ['size' => '30x5']) }}
+                @endif
+                <br>
+                <br>
+            @elseif($field['type'] == 'long_text')
+                {{Form::label($field['key'], $field['label'])}}
+                <br>
+                @if(isset($edit[$field['key']]))
+                    {{ Form::textarea($field['key'], $edit[$field['key']]) }}
+                @else
+                    {{ Form::textarea($field['key']) }}
+                @endif
+                <br>
+                <br>
+            @elseif($field['type'] == 'image')
+                <div class="form-group">
+                    {!! Form::label($field['key'], $field['label']) !!}
+                    {!! Form::file($field['key'], null) !!}
+                </div>
             @endif
+
+
         @endforeach
 
         {{Form::submit(trans('app.adminSubmit'), array('class' => 'btn')) }}

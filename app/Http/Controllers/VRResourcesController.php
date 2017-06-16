@@ -16,7 +16,13 @@ class VrResourcesController extends Controller {
 	 */
 	public function index()
 	{
-		//
+        $config['list'] = VrResources::get()->toArray();
+        $config['title'] = trans('app.adminMenuResources');
+        $config['no_data'] = trans('app.adminNoData');
+        $config['new'] = route('app.resources.create');
+        $config['edit'] = 'app.resources.edit';
+        $config['delete'] = 'app.resources.destroy';
+        return view('admin.adminList', $config);
 	}
 
 	/**
@@ -27,7 +33,11 @@ class VrResourcesController extends Controller {
 	 */
 	public function create()
 	{
-		//
+        $config = $this->getFormData();
+        $config['submit'] = route('app.resources.create');
+        $config['title_name'] = trans('app.adminCreate');
+
+        return view('admin.adminForm', $config);
 	}
 
 	/**
@@ -38,7 +48,8 @@ class VrResourcesController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$data = request()->all();
+		dd($data);
 	}
 
 	/**
@@ -89,4 +100,21 @@ class VrResourcesController extends Controller {
 		//
 	}
 
+    public function getFormData() {
+
+        $lang = request('language_code');
+
+        if($lang == null) {
+            $lang = app()->getLocale();
+        }
+
+        $config['title'] = trans('app.adminMenuMenus');
+        $config['back'] = route('app.menu.index');
+        $config['fields'][] = [
+            "type" => "image",
+            "key" => "image",
+            "label" => trans('app.adminLanguages')
+        ];
+        return $config;
+    }
 }

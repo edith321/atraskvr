@@ -26,5 +26,10 @@ return [
     "adminSequence" => "Sequence",
     "adminParent"=> "Parent menu item",
     "adminYes" => "Yes",
-    "placeholder" => "Please Select"
+    "placeholder" => "Please Select",
+    "adminPages" => "Pages",
+    "adminDescriptionShort" => "Short Description",
+    "adminDescriptionLong" => "Long Description",
+    "adminChooseCategory" => "Choose Category",
+    "adminCoverImage" => "Choose cover image",
 ];

@@ -26,5 +26,10 @@ return [
     "adminSequence" => "Eiliškumas",
     "adminParent"=> "Tėvinis meniu punktas",
     "adminYes" => "Taip",
-    "placeholder" => "Pasirinkite"
+    "placeholder" => "Pasirinkite",
+    "adminPages" => "Puslapiai",
+    "adminDescriptionShort" => "Trumpas tekstas",
+    "adminDescriptionLong" => "Ilgas tekstas",
+    "adminChooseCategory" => "Pasirinkite kategoriją",
+    "adminCoverImage" => "Pasirinkite viršelio nuotrauką",
 ];

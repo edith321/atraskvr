@@ -85,7 +85,6 @@ class VrCategoriesController extends Controller {
         $config['title_name'] = trans('app.adminEdit');
         $config['submit'] = route('app.categories.edit', $id);
         $config['edit'] = VrCategories::find($id)->toArray();
-   /*     dd($config['edit']);*/
         $config['edit']['name'] = $config['edit']['translation']['name'];
         $config['edit']['language_code'] = $config['edit']['translation']['language_code'];
 
