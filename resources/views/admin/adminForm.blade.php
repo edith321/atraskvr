@@ -52,12 +52,27 @@
                 @endif
 
                 @foreach($field['options'] as $option)
-                    {{ Form::checkbox($option['name'], $option['value'])}} @if(isset($option['title'])) {{$option['title']}} @endif
+                    @if(isset($option['title']))
+
+                        @if($edit[$field['key']] == 1)
+                            {{ Form::checkbox($option['name'], $option['value'], true)}} {{$option['title']}}
+                        @else
+                            {{ Form::checkbox($option['name'], $option['value'])}} {{$option['title']}}
+                        @endif
+
+                    @else
+
+                        @if($edit[$field['key']] == 1)
+                            {{ Form::checkbox($option['name'], $option['value'], true)}}
+                        @else
+                            {{ Form::checkbox($option['name'], $option['value'])}}
+                        @endif
+
+                    @endif
                     <br/>
                 @endforeach
                 <br/>
             @endif
-
 
         @endforeach
         {{Form::submit(trans('app.adminSubmit'), array('class' => 'btn')) }}
