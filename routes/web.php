@@ -89,5 +89,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'AdminRestriction']]
             Route::get('/orders', ['as' => 'app.users.orders', 'uses' => 'VrUsersController@orderIndex']);
         });
     });
+    Route::group(['prefix' => 'resources'], function () {
+        Route::get('/', ['as' => 'app.resources.index', 'uses' => 'VrResourcesController@index']);
+        Route::get('/create', ['as' => 'app.resources.create', 'uses' => 'VrResourcesController@create']);
+        Route::post('/create', ['uses' => 'VrResourcesController@store']);
+        Route::group(['prefix' => '{id}'], function () {
+            Route::get('/', ['as' => 'app.resources.show', 'uses' => 'VrResourcesController@show']);
+            Route::get('/edit', ['as' => 'app.resources.edit', 'uses' => 'VrResourcesController@edit']);
+            Route::post('/edit', ['uses' => 'VrResourcesController@update']);
+            Route::delete('/delete', ['as' => 'app.resources.destroy', 'uses' => 'VrResourcesController@destroy']);
+            Route::get('/orders', ['as' => 'app.resources.orders', 'uses' => 'VrResourcesController@orderIndex']);
+        });
+    });
 });
 
